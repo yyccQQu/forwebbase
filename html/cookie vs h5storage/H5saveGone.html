@@ -1,0 +1,28 @@
+<!DOCTYPE>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="anonymous">
+    <title>locstorage 过期策略</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    //自定义localstorage的过期逻辑
+function set(key,val){
+    var curTime=new Date().getTime();
+    localStorage.setItem(key,JSON.stringify({data:val,time:curTime}))
+}
+function get(key,exp){
+    var data=localStorage.getItem(key);
+    var dataObj=JSON.parse(data);
+    if(new Date().getTime()-dataObj.time>exp){
+        console.log("已过期")
+    }else{
+        console.log("data="+dataObj.data)
+    }
+}
+</script>
