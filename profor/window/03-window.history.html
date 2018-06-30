@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>window.history</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript">
+    function tui() {
+        window.history.back(-1);
+    }
+
+    function qian() {
+        history.forward(1);
+    }
+
+    function much() {
+        alert(window.history.length);
+    }
+</script>
+
+<style type="text/css">
+</style>
+</head>
+    <body>
+        <input type="button" value="多少个历史记录"  onclick="much();" />
+        <input type="button" value="后退"  onclick="tui();" />
+        <input type="button" value="前进"  onclick="qian();" />
+    </body>
+</html>

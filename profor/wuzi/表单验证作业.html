@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>注册表单</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+    function chk() {
+        // 判断用户名，是否为空
+        var inpuser = document.getElementsByName('username')[0];
+        if(inpuser.value == '' || inpuser.value == '请输入用户名') {
+            alert('请输入用户名');
+            return false;
+        }
+
+        // 判断密码不为空，且一致
+        var ipasswd = document.getElementsByName('passwd')[0];
+        var ipasswdcfm = document.getElementsByName('passwdcfm')[0];
+        if(ipasswd.value == '') {
+            alert('请输入密码');
+            return false;
+        }
+
+        if(ipasswd.value != ipasswdcfm.value) {
+            alert('两次密码不一致');
+            return false;
+        }
+
+        
+        for(var i=0,res=0,gens = document.getElementsByName('gender'),len=gens.length; i < len;i++) {
+            if(gens[i].checked) {
+                res +=1;
+            }
+
+            /*
+                res = gens[i].checked || res;
+            */
+        }
+        
+        if(res == 0) {
+            alert('请选择性别');
+            return false;
+        }
+
+
+        for(var i=0,res=0,hobs = document.getElementsByName('hobby'),len=hobs.length; i < len; i++) {
+            if(hobs[i].checked) {
+                res +=1;
+            }
+        }
+
+        if(res < 2) {
+            alert('爱好至少选２项');
+            return false;
+        }
+
+
+        if(document.getElementsByName('xueli')[0].value == '') {
+            alert('请选择学历');
+            return false;
+        }
+
+       
+    }
+</script>
+
+</head>
+    <body>
+        <p>
+            五子棋完成的同学继续做这个作业。<br />
+            未完成，上午依然是做五子棋
+        </p>
+        <p>
+            当表单提交时，要求完成：<br />
+            检测用户名是否为空，<br />
+            密码是否填写,<br />
+            两次密码是否一致<br />
+            性别是否选择<br />
+            学历是否选择<br />
+            爱好至少选２种<br />
+            不满足，则不让提交<br />
+        
+        </p>
+        <h2>注册表单</h2>
+        <form method="GET" onsubmit="return chk();">
+            <p>
+            用户名:<input type="text" name="username" value="请输入用户名" />&nbsp;
+            <input type="button" value="检测用户名" onclick="checkuser();" />
+            </p>
+            <p>
+            密码框:<input type="password" name="passwd" />
+            </p>
+            <p>
+            确认密码:<input type="password" name="passwdcfm" />
+            </p>
+            <p>
+            
+            性别:男:<input type="radio" name="gender" value="男" />
+            女:<input type="radio" name="gender" value="女" />
+            春哥:<input type="radio" name="gender" value="春哥" />
+            
+            </p>
+
+            <p>           
+            爱好:<br />
+            篮球:<input type="checkbox" name="hobby" value="篮球" />
+            台球:<input type="checkbox" name="hobby" value="台球" />
+            玻璃球:<input type="checkbox" name="hobby" value="玻璃球" />  
+            </p>
+
+            <p>
+            上传头像:
+            <input type="file" name="touxiang" />   
+            </p>
+
+
+            <p>
+                <select name="xueli">
+                    <option value="">请选择学历</option>
+                    <option value="小学">小学</option>
+                    <option value="中学">中学</option>
+                    <option value="大学">大学</option>
+                    <option value="博士">博士</option> 
+                </select>
+            </p>
+
+            <p>
+                <textarea name="introduce"></textarea>
+            </p>
+                
+            
+            <p>
+            <input type="hidden" name="guoji" value="中国" />
+            <input type="submit" value="确认注册" /> &nbsp;&nbsp;
+            <input type="image" src="sub.gif" /> &nbsp;&nbsp;
+            <input type="reset" value="重新填写"  />            
+            </p>
+
+       
+        </form>
+    </body>
+</html>

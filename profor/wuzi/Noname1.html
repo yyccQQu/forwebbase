@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>新建网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript">
+    function opadd() {
+        var newop = document.createElement('option');
+        var cont = document.createTextNode('请选择');
+        newop.setAttribute('value',Math.random());
+        newop.appendChild(cont);
+        var sel = document.getElementsByTagName('select')[0];
+        sel.appendChild(newop);
+    }
+
+    function t() {
+        alert(document.getElementsByTagName('select')[0].value);
+    }
+</script>
+
+<style type="text/css">
+</style>
+</head>
+    <body>
+        <select onchange="t();">
+        </select>
+        <p>
+        <input type="button" value="加一个" onclick="opadd();" />
+        </p>
+    </body>
+</html>
