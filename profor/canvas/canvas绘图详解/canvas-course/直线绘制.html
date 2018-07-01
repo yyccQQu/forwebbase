@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas')
+            
+            canvas.width = 1024;
+            canvas.height = 768;
+
+            var context = canvas.getContext('2d');
+            //使用context绘制
+            context.beginPath()
+            context.moveTo(100,100)
+            context.lineTo(700,700)
+            context.lineTo(100,700)
+            context.lineTo(100,100)
+            context.closePath()
+
+            // context.fillStyle = 'rgb(2,100,30)'
+            // context.fill() 填充颜色
+
+            context.lineWidth = 5; //宽度
+            context.strokeStyle = "blue"; //颜色
+            context.stroke() //绘制线条
+            
+            context.beginPath() //重定绘制起点
+            context.moveTo(200,100) 
+            context.lineTo(700,600)
+            context.closePath()
+            context.strokeStyle = "red"; //颜色
+            context.stroke()   
+        }
+        
+    
+    </script>
+
+</body>
+</html>
